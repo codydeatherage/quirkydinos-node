@@ -1,5 +1,15 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
+
+const corsOptions = {
+  origin: "*",
+  methods: ["GET", "POST"],
+
+  allowedHeaders: ["Content-Type"],
+};
+
+app.use(cors(corsOptions));
 
 const PORT = process.env.port ?? 3000;
 
