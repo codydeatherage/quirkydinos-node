@@ -1,6 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 const mysql = require("mysql");
+require("dotenv").config();
+
 const app = express();
 
 const corsOptions = {
@@ -24,6 +26,8 @@ const PORT = process.env.port ?? 3000;
 app.get("/", (req, res) => {
   res.json("Hello QuirkyDinos");
 });
+
+console.log("DB Connnectiong Info: ", process.env.HOST);
 
 app.get("/test", (req, res) => {
   const q = `SELECT * FROM test`;
